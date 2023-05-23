@@ -26,3 +26,4 @@ y1(length(x)+1)= (1/2)*x(length(x));
 h1=(1/2)*deltaK(n) + (1/2)*deltaK(n-1);
 stemCompleto([n(1) n(end) -0.5 2.5],'n','Amplitud','Gráfico de la SVIC',25,'m*-',1.5,n,h1);
 
+%%SPIIIIIIIICEEEEE
