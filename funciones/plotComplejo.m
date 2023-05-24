@@ -1,4 +1,4 @@
-function plotComplejo(lim_ejes,eje_x,eje_y,titulo,tam_letra,col,grosor,n,x)
+function plotComplejo(lim_ejes,lim_ejes_modulo,eje_x,eje_y,titulo,tam_letra,col,grosor,n,x)
     % plotCompleto(lim_ejes,eje_x,eje_y,titulo,tam_letra,col,grosor,t,x)
     %
     % Realiza un gr ́afico de una SVIC de manera adecuada.
@@ -22,7 +22,7 @@ function plotComplejo(lim_ejes,eje_x,eje_y,titulo,tam_letra,col,grosor,n,x)
     
     subplot(2,2,3);
     plot(n, abs(x), col, 'Linewidth', grosor);
-    axis(lim_ejes); grid on; % L ́ımites de los ejes. Grilla.
+    axis(lim_ejes_modulo); grid on; % L ́ımites de los ejes. Grilla.
     set(gca,'FontSize', tam_letra); % Tama~no de letra para la leyenda y ejes.
     title("Modulo"); % Coloco t ́ıtulo para el gr ́afico.
 
