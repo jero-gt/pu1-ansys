@@ -69,41 +69,42 @@ disp(isequal(H2,H2_v));
 
 h3=(1/4)*deltaK(n1) + 3*((1/2).^(n1+2)).*escalon(n1-1);
 stemCompleto([n1(1) n1(end) -1 1],'n','Amplitud', 'h_3[n]', 25, 'm*-',1.5, n1, h3);
-% H3 = (1/4) + (3/8)*(exp(-1i*2*pi.*s)/(1-(1/2)*exp(-1i*2*pi.*s)));
-for i=1:length(s)
-    H3(i)=(1/4) + (3/8)*(exp(-1i*2*pi.*s(i))/(1-(1/2)*exp(-1i*2*pi.*s(i))));
-end
+
+H3 = 1/4*ones(length(s)) + (3/8)*(exp(-1i*2*pi.*s)/(1-(1/2)*exp(-1i*2*pi.*s)));
 plotComplejo([-0.5 0.5 -1 1],[-0.5 0.5 0 1.5] ,[-0.5 0.5 -3 3],'s','H_3(e^{j2\pis})',25,'m-',1.5,s,H3);
 
-disp(isequal(H3,H3_v));
-a=H3-H3_v;
 h3_v=s3(deltaK(n));
 [H3_v, ~] = TFTD(h3_v,n1);
-plotComplejo([-0.5 0.5 -1 1],[-0.5 0.5 0 1.5] ,[-0.5 0.5 -3 3],'s','H_3v(e^{j2\pis})',25,'m-',1.5,s,H3_v);
 
-
-
-
-
-% %Respuesta impulsional al sistema
-% h3=(1/4)*deltaK(n1)=+ (1/4)*deltaK(n1-1);
-% stemCompleto([n(1) n(end) -1 1],'n','Amplitud', 'h_2[n]', 25, 'm*-',1.5, n1, h2);
-% 
-% H2 = 0.5*(1 - exp(-1i*2*pi*s));
-% plotComplejo([-0.5 0.5 -1 1],[-0.5 0.5 0 1.5] ,[-0.5 0.5 -3 3],'s','H_2(e^{j2\pis})',25,'m-',1.5,s,H2);
+y3=s3(x);
+stemCompleto([n1(1) n1(end) (min(y3)-1) (max(y3)+1)],'n','Amplitud','y_3[n]',25,'m*-',1.5,n1,y3);
 % %cerrar_graficos;
-% 
-% % Verificamos que coincida la rta imp. analatica y la de los sistemas.
-% h2_v = s2(deltaK(n));
-% [H2_v, ~] = TFTD(h2_v,n1);
-% 
-% 
-% y2=s2(x);
-% stemCompleto([n1(1) n1(end) (min(y2)-1) (max(y2)+1)],'n','Amplitud','y_2[n]',25,'m*-',1.5,n1,y2);
+[Y3,~]=TFTD(y3,n1);
+plotComplejo([-0.5 0.5 -80 100], [-0.5 0.5 0 max(abs(Y3))],[-0.5 0.5 -4 4], "s",'Y_3(e^{j2\pis})',25,'m-',1.5,s,Y3);
 % %cerrar_graficos;
-% [Y2,~]=TFTD(y2,n1);
-% plotComplejo([-0.5 0.5 -11 11], [-0.5 0.5 0 11],[-0.5 0.5 -4 4], "s",'Y_2(e^{j2\pis})',25,'m-',1.5,s,Y2);
+
+%% ECUACION EN DIFERENCIAS 4
+%y[n]=(1/4)*x[n] - (1/4)*x[n-1] - (1/2)*y[n-1]
+
+close all
+clc
+h4=(1/4)*deltaK(n1) + (3/8)*exp(1i*2*pi*(n1/2)).*(1/2).^(n1-1).*escalon(n1-1);
+stemCompleto([n1(1) n1(end) -1 1],'n','Amplitud', 'h_4[n]', 25, 'm*-',1.5, n1, h4);
+
+H3 = 1/4*ones(length(s)) + (3/8)*(exp(-1i*2*pi.*s)/(1-(1/2)*exp(-1i*2*pi*s)));
+r= s-0.5*ones(length(s));
+H4 = 1/4*ones(length(s)) + (3/8)*(exp(-1i*2*pi*(s-1/2))/(1-(1/2)*exp(-1i*2*pi*(s-1/2))));
+Hs = 1/4*ones(length(s)) + (3/8)*(exp(-1i*2*pi.*r)/(1-(1/2)*exp(-1i*2*pi*r)));
+H3 = 1/4*ones(length(s)) + (3/8)*(exp(-1i*2*pi.*s)/(1-(1/2)*exp(-1i*2*pi*s)));
+plotComplejo([-0.5 0.5 -1 1],[-0.5 0.5 0 1.5] ,[-0.5 0.5 -3 3],'s','H_4(e^{j2\pis})',25,'m-',1.5,s,Hs);
+
+h4_v=s4(deltaK(n));
+[H4_v, ~] = TFTD(h4_v,n1);
+plotComplejo([-0.5 0.5 -1 1],[-0.5 0.5 0 1.5] ,[-0.5 0.5 -3 3],'s','H_4v(e^{j2\pis})',25,'m-',1.5,s,H4_v);
+
+y4=s4(x);
+stemCompleto([n1(1) n1(end) (min(y4)-1) (max(y4)+1)],'n','Amplitud','y_4[n]',25,'m*-',1.5,n1,y4);
 % %cerrar_graficos;
-% 
-% disp(isequal(h2,h2_v));
-% disp(isequal(H2,H2_v));
+[Y4,~]=TFTD(y4,n1);
+plotComplejo([-0.5 0.5 -80 100], [-0.5 0.5 0 max(abs(Y4))],[-0.5 0.5 -4 4], "s",'Y_4(e^{j2\pis})',25,'m-',1.5,s,Y4);
+% %cerrar_graficos;
