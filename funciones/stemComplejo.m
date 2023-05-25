@@ -1,4 +1,4 @@
-function stemComplejo(lim_ejes,eje_x,eje_y,titulo,tam_letra,col,grosor,n,x)
+function stemComplejo(lim_ejes,lim_ejes_modulo,lim_ejes_fase, eje_x, titulo, tam_letra, col, grosor, n, x)
     % plotCompleto(lim_ejes,eje_x,eje_y,titulo,tam_letra,col,grosor,t,x)
     %
     % Realiza un gr ́afico de una SVIC de manera adecuada.
@@ -22,13 +22,13 @@ function stemComplejo(lim_ejes,eje_x,eje_y,titulo,tam_letra,col,grosor,n,x)
     
     subplot(2,2,3);
     stem(n, abs(x), col, 'Linewidth', grosor);
-    axis(lim_ejes); grid on; % L ́ımites de los ejes. Grilla.
+    axis(lim_ejes_modulo); grid on; % L ́ımites de los ejes. Grilla.
     set(gca,'FontSize', tam_letra); % Tama~no de letra para la leyenda y ejes.
     title("Modulo"); % Coloco t ́ıtulo para el gr ́afico.
 
     subplot(2,2,4);
     stem(n, angle(x), col, 'Linewidth', grosor);
-    axis(lim_ejes); 
+    axis(lim_ejes_fase); 
     grid on; % L ́ımites de los ejes. Grilla.
     set(gca,'FontSize', tam_letra); % Tama~no de letra para la leyenda y ejes.
     title("Fase"); % Coloco t ́ıtulo para el gr ́afico.

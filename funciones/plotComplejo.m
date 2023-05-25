@@ -1,4 +1,4 @@
-function plotComplejo(lim_ejes,lim_ejes_modulo,lim_ejes_fase, eje_x,eje_y,titulo,tam_letra,col,grosor,n,x)
+function plotComplejo(lim_ejes,lim_ejes_modulo,lim_ejes_fase, eje_x, titulo, tam_letra, col, grosor, n, x)
     % plotCompleto(lim_ejes,eje_x,eje_y,titulo,tam_letra,col,grosor,t,x)
     %
     % Realiza un gr ?afico de una SVIC de manera adecuada.
