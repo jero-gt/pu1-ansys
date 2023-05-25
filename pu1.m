@@ -35,3 +35,5 @@ cerrar_graficos;
 [Y1,~]=TFTD(y1,n1);
 plotComplejo([-0.5 0.5 -80 110], [-0.5 0.5 0 110],[-0.5 0.5 -4 4], 'Frecuencia "s" ','Módulo de la TFTD','Gráfico de la TFTD',25,'m-',1.5,s,Y1);
 
+
+%%SPICEEE
