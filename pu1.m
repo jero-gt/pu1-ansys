@@ -1,6 +1,5 @@
 %TP UTILITARIO 1
-addpath('./funciones');
-addpath('./sistemas');
+addpath(genpath('.'));
 clc; close all; clearvars;
 
 
@@ -10,7 +9,7 @@ stemCompleto([n(1) n(end) -0.5 2.5],'n','Amplitud','Señal de entrada x[n]',25,'
 %cerrar_graficos;
 
 [X, s] = TFTD(x, n);
-plotComplejo([-0.5 0.5 -80 110], [-0.5 0.5 0 110], [-0.5 0.5 -4 4], 's', "X",25,'m-',1.5,s,X);
+plotComplejo([-0.5 0.5 -80 110], [-0.5 0.5 0 110], [-0.5 0.5 -4 4], 's', "TFTD de la señal",25,'m-',1.5,s,X);
 %cerrar_graficos;
 
 %% ECUACION EN DIFERENCIAS 1
@@ -61,9 +60,6 @@ stemCompleto([n1(1) n1(end) (min(y2)-1) (max(y2)+1)],'n','Amplitud','y_2[n]',25,
 plotComplejo([-0.5 0.5 -11 11], [-0.5 0.5 0 11],[-0.5 0.5 -4 4], "s",'Y_2(e^{j2\pis})',25,'m-',1.5,s,Y2);
 %cerrar_graficos;
 
-disp(isequal(h2,h2_v));
-disp(isequal(H2,H2_v));
-
 %% ECUACION EN DIFERENCIAS 3
 %y[n]=(1/4)*x[n] + (1/4)*x[n-1] + (1/2)*y[n-1]
 
@@ -95,7 +91,6 @@ plotComplejo([-0.5 0.5 -1 1],[-0.5 0.5 0 1.5] ,[-0.5 0.5 -3 3],'s','H_4(e^{j2\pi
 
 h4_v=s4(deltaK(n));
 [H4_v, ~] = TFTD(h4_v,n1);
-plotComplejo([-0.5 0.5 -1 1],[-0.5 0.5 0 1.5] ,[-0.5 0.5 -3 3],'s','H_4v(e^{j2\pis})',25,'m-',1.5,s,H4_v);
 
 y4=s4(x);
 stemCompleto([n1(1) n1(end) (min(y4)-1) (max(y4)+1)],'n','Amplitud','y_4[n]',25,'m*-',1.5,n1,y4);

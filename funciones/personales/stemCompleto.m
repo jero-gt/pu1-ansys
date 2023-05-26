@@ -1,4 +1,5 @@
 function stemCompleto(lim_ejes,eje_x,eje_y,titulo,tam_letra,col,grosor,n,x)
+%stemCompleto([n(1) n(end) -1.5 1.5],'n','Amplitud','Señal de entrada x[n]',25,'m*-',1.5,n,h);
     % plotCompleto(lim_ejes,eje_x,eje_y,titulo,tam_letra,col,grosor,t,x)
     %
     % Realiza un gr ́afico de una SVIC de manera adecuada.
