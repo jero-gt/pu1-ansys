@@ -70,7 +70,7 @@ disp(isequal(H2,H2_v));
 h3=(1/4)*deltaK(n1) + 3*((1/2).^(n1+2)).*escalon(n1-1);
 stemCompleto([n1(1) n1(end) -1 1],'n','Amplitud', 'h_3[n]', 25, 'm*-',1.5, n1, h3);
 
-H3 = 1/4*ones(length(s)) + (3/8)*(exp(-1i*2*pi.*s)/(1-(1/2)*exp(-1i*2*pi.*s)));
+H3 = 1/4*ones(1,length(s)) + (3/8)*(exp(-1i*2*pi.*s)./(1-(1/2)*exp(-1i*2*pi*s)));
 plotComplejo([-0.5 0.5 -1 1],[-0.5 0.5 0 1.5] ,[-0.5 0.5 -3 3],'s','H_3(e^{j2\pis})',25,'m-',1.5,s,H3);
 
 h3_v=s3(deltaK(n));
@@ -86,17 +86,12 @@ plotComplejo([-0.5 0.5 -80 100], [-0.5 0.5 0 max(abs(Y3))],[-0.5 0.5 -4 4], "s",
 %% ECUACION EN DIFERENCIAS 4
 %y[n]=(1/4)*x[n] - (1/4)*x[n-1] - (1/2)*y[n-1]
 
-close all
-clc
 h4=(1/4)*deltaK(n1) + (3/8)*exp(1i*2*pi*(n1/2)).*(1/2).^(n1-1).*escalon(n1-1);
 stemCompleto([n1(1) n1(end) -1 1],'n','Amplitud', 'h_4[n]', 25, 'm*-',1.5, n1, h4);
 
-H3 = 1/4*ones(length(s)) + (3/8)*(exp(-1i*2*pi.*s)/(1-(1/2)*exp(-1i*2*pi*s)));
-r= s-0.5*ones(length(s));
-H4 = 1/4*ones(length(s)) + (3/8)*(exp(-1i*2*pi*(s-1/2))/(1-(1/2)*exp(-1i*2*pi*(s-1/2))));
-Hs = 1/4*ones(length(s)) + (3/8)*(exp(-1i*2*pi.*r)/(1-(1/2)*exp(-1i*2*pi*r)));
-H3 = 1/4*ones(length(s)) + (3/8)*(exp(-1i*2*pi.*s)/(1-(1/2)*exp(-1i*2*pi*s)));
-plotComplejo([-0.5 0.5 -1 1],[-0.5 0.5 0 1.5] ,[-0.5 0.5 -3 3],'s','H_4(e^{j2\pis})',25,'m-',1.5,s,Hs);
+H4 = 1/4*ones(1,length(s)) + (3/8)*(exp(-1i*2*pi*(s-1/2))./(1-(1/2)*exp(-1i*2*pi*(s-1/2))));
+plotComplejo([-0.5 0.5 -1 1],[-0.5 0.5 0 1.5] ,[-0.5 0.5 -3 3],'s','H_4(e^{j2\pis})',25,'m-',1.5,s,H4);
+
 
 h4_v=s4(deltaK(n));
 [H4_v, ~] = TFTD(h4_v,n1);
