@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1685017947 "main.tex" "main.pdf" "main" 1685017947 0
+["pdflatex"] 1685152870 "main.tex" "main.pdf" "main" 1685152871 0
   "/usr/share/texmf-dist/fonts/enc/dvips/base/8r.enc" 1680514707 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1680514707 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texmf-dist/fonts/tfm/adobe/times/ptmb7t.tfm" 1680514707 2172 fd0c924230362ff848a33632ed45dc23 ""
@@ -48,10 +48,10 @@
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1680514707 39911 2da6c67557ec033436fe5418a70a8a61 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1680646891 4491781 539e3b5e308794ddb50e5f94f0e971f4 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1680646876 8204072 ef2d3e88bcda25a815d90b30ae20fc3a ""
-  "figuras/Fig.jpg" 1557119170 64863 288b052ea90b3cb7e342d5222b88febc ""
-  "ieeeconf.cls" 1557119170 197426 0c27c5da4b61d3bf0b35fe7a1b1ca333 ""
-  "main.aux" 1685017947 2087 3d6300c1b33578ca0e03a12e1034b53c "pdflatex"
-  "main.tex" 1685017945 16715 35ac207604c9207fed34a1debbed82b5 ""
+  "figuras/Fig.jpg" 1685143780 64863 288b052ea90b3cb7e342d5222b88febc ""
+  "ieeeconf.cls" 1685143780 197426 0c27c5da4b61d3bf0b35fe7a1b1ca333 ""
+  "main.aux" 1685152871 2087 3d6300c1b33578ca0e03a12e1034b53c "pdflatex"
+  "main.tex" 1685152869 16638 b25f8b6713d1eaa5c945a120a6a8033e ""
   (generated)
   "main.aux"
   "main.log"

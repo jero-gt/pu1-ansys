@@ -18,26 +18,18 @@ sound(y, fs);
 plotCompleto([0 60845 -1 1],'t','Amplitud','Sonido procesado (salida)',20,'r-',1.5,t, y);
 
 y2=sis_2ramas(y);
-plotCompleto([0 60845 -1 1],'t','Amplitud','2 ramas',20,'r-',1.5,t, y2);
+plotCompleto([0 60845 -1 1],'t','Amplitud','2 ramas de retardo',20,'r-',1.5,t, y2);
 
 y3=sis_3ramas(y);
-plotCompleto([0 60845 -1 1],'t','Amplitud','Sonido procesado (salida)',20,'r-',1.5,t, y3);
-
-yyy=sis33ramas(y);
-plotCompleto([0 60845 -1 1],'t','Amplitud','2 ramas modificado',20,'r-',1.5,t, yyy);
+plotCompleto([0 60845 -1 1],'t','Amplitud','3 ramas de retardo',20,'r-',1.5,t, y3);
 
 
 
 
-h_yyy=sis_3ramas(h);
-stemCompleto([n(1) n(end) -1.5 1.5],'n','Amplitud','Respuesta impulsional del sistema',25,'m*-',1.5,n,h_yyy);
 
 
-h_v=sis_eco(deltaK(t));
-h_yyy=sis33ramas(h_v);
 
 
-stemCompleto([0 60845 -1 1],'t','Amplitud','2 ramas modificado',20,'r-',1.5,t, h_yyy);
-
-audiowrite('./nuevo_audio3.wav', y3, fs);
-audiowrite('./nuevo_audio2.wav', y2, fs);
+audiowrite('./audios/nuevo_audio3.wav', y3, fs);
+audiowrite('./audios/nuevo_audio2.wav', y2, fs);
+audiowrite('./audios/nuevo_audio_eco.wav', y, fs);
