@@ -6,8 +6,7 @@ clc; close all; clearvars;
 [n,h]= hcanald(726176);
 stemCompleto([n(1) n(end) -1.5 1.5],'n','Amplitud','Respuesta impulsional del sistema',25,'m*-',1.5,n,h);
 h_v=sis_eco(deltaK(n));
-
-
+Le
 %% Sonido
 [x,fs]=audioread('audio.wav');
 t=0:length(x)-1;
