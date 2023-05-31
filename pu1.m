@@ -53,7 +53,7 @@ plotComplejo([-0.5 0.5 -11 11], [-0.5 0.5 0 11],[-0.5 0.5 -4 4], "s",'Y_2(e^{j2\
 %% ECUACION EN DIFERENCIAS 3: y[n]=(1/4)*x[n] + (1/4)*x[n-1] + (1/2)*y[n-1]
 %Ahora trabajamos con uns sistema IIR, por lo que la rta impulsional será infinta.
 %Definimos un nuevo vector n2 que tome valores mas allá de 100 (el largo de n)
-n2=0:length(n)+49;
+n2=0:length(n)+19;
 n3=0:length(n2);
 h3=(1/4)*deltaK(n2) + 3*((1/2).^(n2+2)).*escalon(n2-1);
 stemCompleto([n2(1) n2(end) -1 1],'n','Amplitud', 'h_3[n]', 25, 'm-',1.5, n2, h3);
@@ -61,7 +61,7 @@ stemCompleto([n2(1) n2(end) -1 1],'n','Amplitud', 'h_3[n]', 25, 'm-',1.5, n2, h3
 H3 = 1/4*ones(1,length(s)) + (3/8)*(exp(-1i*2*pi.*s)./(1-(1/2)*exp(-1i*2*pi*s)));
 plotComplejo([-0.5 0.5 -1 1],[-0.5 0.5 0 1.5] ,[-0.5 0.5 -3 3],'s','H_3(e^{j2\pis})',25,'m-',1.5,s,H3);
 
-h3_v=s3(deltaK(n2));
+h3_v=s3(deltaK(n2),n2);
 [H3_v, ~] = TFTD(h3_v,n3);
 
 y3=s3(x,n2);
@@ -73,8 +73,8 @@ plotComplejo([-0.5 0.5 -80 100], [-0.5 0.5 0 max(abs(Y3))],[-0.5 0.5 -4 4], "s",
 %% ECUACION EN DIFERENCIAS 4
 %y[n]=(1/4)*x[n] - (1/4)*x[n-1] - (1/2)*y[n-1]
 
-h4=(1/4)*deltaK(n1) + (3/8)*exp(1i*2*pi*(n1/2)).*(1/2).^(n1-1).*escalon(n1-1);
-stemCompleto([n1(1) n1(end) -1 1],'n','Amplitud', 'h_4[n]', 25, 'm*-',1.5, n1, real(h4));
+h4=(1/4)*deltaK(n2) + (3/8)*exp(1i*2*pi*(n2/2)).*(1/2).^(n2-1).*escalon(n2-1);
+stemCompleto([n2(1) n2(end) -1 1],'n','Amplitud', 'h_4[n]', 25, 'm*-',1.5, n2, real(h4));
 
 %Graficamos solo la parte real ya que h4 tiene una parte imaginaria practicamente nula ~O(-34) aprox.
 
@@ -82,12 +82,12 @@ H4 = 1/4*ones(1,length(s)) + (3/8)*(exp(-1i*2*pi*(s-1/2))./(1-(1/2)*exp(-1i*2*pi
 plotComplejo([-0.5 0.5 -1 1],[-0.5 0.5 0 1.5] ,[-0.5 0.5 -3 3],'s','H_4(e^{j2\pis})',25,'m-',1.5,s,H4);
 
 
-h4_v=s4(deltaK(n));
-[H4_v, ~] = TFTD(h4_v,n1);
+h4_v=s4(deltaK(n2),n2);
+[H4_v, ~] = TFTD(h4_v,n3);
 
-y4=s4(x);
-stemCompleto([n1(1) n1(end) (min(y4)-1) (max(y4)+1)],'n','Amplitud','y_4[n]',25,'m*-',1.5,n1,y4);
+y4=s4(x,n2);
+stemCompleto([n2(1) n2(end) (min(y4)-1) (max(y4)+1)],'n','Amplitud','y_4[n]',25,'m*-',1.5,n2,y4);
 % %cerrar_graficos;
-[Y4,~]=TFTD(y4,n1);
+[Y4,~]=TFTD(y4,n2);
 plotComplejo([-0.5 0.5 -80 100], [-0.5 0.5 0 max(abs(Y4))],[-0.5 0.5 -4 4], "s",'Y_4(e^{j2\pis})',25,'m-',1.5,s,Y4);
 % %cerrar_graficos;

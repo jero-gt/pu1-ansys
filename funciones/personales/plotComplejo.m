@@ -12,6 +12,7 @@ function plotComplejo(lim_ejes,lim_ejes_modulo,lim_ejes_fase, eje_x, titulo, tam
     subplot(2,1,1);
     plot3(n,real(x),imag(x),col,'Linewidth',grosor); % Grafico. Color (y marcador) y grosor.
     axis(lim_ejes); grid on; % L ??mites de los ejes. Grilla.
+    view(0, 90); % Sitúa la gráfica en el eje real
     set(gca,'FontSize', tam_letra); % Tama~no de letra para la leyenda y ejes.
     xlabel(eje_x,'Interpreter','Latex'); % Nombro el eje x.
     ylabel("Real",'Interpreter','Latex'); % Nombro el eje y.
