@@ -3,12 +3,12 @@ addpath(genpath('.'));
 clc; close all; clearvars;
 
 
-%% SE√ëAL DE ENTRADA
+%% SE—AL DE ENTRADA
 [n,x]=senial(736456);
-stemCompleto([n(1) n(end) -0.5 2.5],'n','Amplitud','Se√±al de entrada x[n]',25,'m*-',1.5,n,x);
+stemCompleto([n(1) n(end) -0.5 2.5],'n','Amplitud','SeÒal de entrada x[n]',25,'m*-',1.5,n,x);
 
-[X, s] = TFTD(x, n); %TFTD de la se√±al de entrada.
-plotComplejo([-0.5 0.5 -80 110], [-0.5 0.5 0 110], [-0.5 0.5 -4 4], 's', "TFTD de la se√±al",25,'m-',1.5,s,X);
+[X, s] = TFTD(x, n); %TFTD de la seÒal de entrada.
+plotComplejo([-0.5 0.5 -80 110], [-0.5 0.5 0 110], [-0.5 0.5 -4 4], 's', "TFTD de la seÒal",25,'m-',1.5,s,X);
 
 %% ECUACION EN DIFERENCIAS 1: y[n]= (1/2)*x[n] + (1/2)*x[n-1]
 n1=0:length(n); %Agregamos un valor mas, para tener en cuenta posibles adelantos en las ecuaciones en diferencias.
@@ -23,7 +23,7 @@ plotComplejo([-0.5 0.5 0 1.5],[-0.5 0.5 0 1.5] ,[-0.5 0.5 -3 3],'s','H1(e^{j2\pi
 h1_v = s1(deltaK(n));
 [H1_v, ~] = TFTD(h1_v,n1);
 
-y1=s1(x); %Procesamos la se√±al de entrada con el sistema s1.
+y1=s1(x); %Procesamos la seÒal de entrada con el sistema s1.
 stemCompleto([n1(1) n1(end) (min(y1)-1) (max(y1)+1)],'n','Amplitud','y_1[n]',25,'m*-',1.5,n1,y1);
 
 [Y1,~]=TFTD(y1,n1);
@@ -48,11 +48,10 @@ stemCompleto([n1(1) n1(end) (min(y2)-1) (max(y2)+1)],'n','Amplitud','y_2[n]',25,
 
 [Y2,~]=TFTD(y2,n1);
 plotComplejo([-0.5 0.5 -11 11], [-0.5 0.5 0 11],[-0.5 0.5 -4 4], "s",'Y_2(e^{j2\pis})',25,'m-',1.5,s,Y2);
-%cerrar_graficos;
 
 %% ECUACION EN DIFERENCIAS 3: y[n]=(1/4)*x[n] + (1/4)*x[n-1] + (1/2)*y[n-1]
-%Ahora trabajamos con uns sistema IIR, por lo que la rta impulsional ser√° infinta.
-%Definimos un nuevo vector n2 que tome valores mas all√° de 100 (el largo de n)
+%Ahora trabajamos con uns sistema IIR, por lo que la rta impulsional ser· infinta.
+%Definimos un nuevo vector n2 que tome valores mas all· de 100 (el largo de n)
 n2=0:length(n)+19;
 n3=0:length(n2);
 h3=(1/4)*deltaK(n2) + 3*((1/2).^(n2+2)).*escalon(n2-1);
@@ -66,7 +65,7 @@ h3_v=s3(deltaK(n2),n2);
 
 y3=s3(x,n2);
 stemCompleto([n2(1) n2(end) (min(y3)-1) (max(y3)+1)],'n','Amplitud','y_3[n]',25,'m*-',1.5,n2,y3);
-% %cerrar_graficos;
+
 [Y3,~]=TFTD(y3,n2);
 plotComplejo([-0.5 0.5 -80 100], [-0.5 0.5 0 max(abs(Y3))],[-0.5 0.5 -4 4], "s",'Y_3(e^{j2\pis})',25,'m-',1.5,s,Y3);
 
@@ -87,7 +86,6 @@ h4_v=s4(deltaK(n2),n2);
 
 y4=s4(x,n2);
 stemCompleto([n2(1) n2(end) (min(y4)-1) (max(y4)+1)],'n','Amplitud','y_4[n]',25,'m*-',1.5,n2,y4);
-% %cerrar_graficos;
+
 [Y4,~]=TFTD(y4,n2);
 plotComplejo([-0.5 0.5 -80 100], [-0.5 0.5 0 max(abs(Y4))],[-0.5 0.5 -4 4], "s",'Y_4(e^{j2\pis})',25,'m-',1.5,s,Y4);
-% %cerrar_graficos;
