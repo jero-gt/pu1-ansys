@@ -6,6 +6,6 @@ function y = s4(x,n)
     y(length(x)+1)=-0.25*x(length(x)) - 0.5*y(length(x));
     
     for j = length(x) + 2:length(n)
-        y(j) = 0.5*y(j-1); 
+        y(j) = -0.5*y(j-1); 
     end
 end
