@@ -10,6 +10,4 @@ function y=sis_2ramas(x)
     for i = 26461:length(x)
         y(i) = x(i) + 1/2*x(i-8820) - 1/8*x(i-26460);
     end
-
-   % y(length(x)+1) = 0.5*x(length(x));
 end
