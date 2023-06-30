@@ -28,7 +28,6 @@ y1=s1(x); %Procesamos la señal de entrada con el sistema s1.
 stemCompleto([n(1) n(end) -0.5 2.5],'n','Amplitud','y_1[n]',25,'mo-',1.5,n,y1);
 
 [Y1,~]=TFTD(y1,n);
-%mod_fase([-0.5 0.5 -80 110], [-0.5 0.5 0 110],[-0.5 0.5 -4 4], "s",'Y_1(e^{j2\pis})',25,'m-',1.5,s,Y1);
 mod_fase( [-0.5 0.5 0 110],[-0.5 0.5 -4 4], "s",'Y_1(e^{j2\pis})',25,'m-',1.5,s,Y1);
 
 

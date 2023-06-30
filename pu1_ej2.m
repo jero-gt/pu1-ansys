@@ -18,7 +18,7 @@ plotDoble([0 60845 -1 1], [0 60845 -1 1], 'n', 'Amplitud', "Audio original", "Au
 %% Dos ramas de retardo
 
 h_f2=sis_2ramas(deltaK(t));
-stemCompleto([0 60845 -1 1],'t','Amplitud','h_{f2}',20,'r-',1.5,t, h_f2);
+stemCompleto([0 60845 -1 1],'t','Amplitud','h_{f2}[n]',20,'r-',1.5,t, h_f2);
 
 y2=sis_2ramas(y);
 plotCompleto([0 60845 -1 1],'t','Amplitud','2 ramas de retardo',20,'r-',1.5,t, y2);
@@ -26,7 +26,7 @@ plotCompleto([0 60845 -1 1],'t','Amplitud','2 ramas de retardo',20,'r-',1.5,t, y
 
 %% Tres ramas de retardo
 h_f3=sis_3ramas(deltaK(t));
-stemCompleto([0 60845 -1 1],'t','Amplitud','h_{f3}',20,'r-',1.5,t, h_f3);
+stemCompleto([0 60845 -1 1],'t','Amplitud','h_{f3}[n]',20,'r-',1.5,t, h_f3);
 
 y3=sis_3ramas(y);
 plotCompleto([0 60845 -1 1],'t','Amplitud','3 ramas de retardo',20,'r-',1.5,t, y3);
